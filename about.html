@@ -2,34 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About samblog</title>
   <link rel="stylesheet" href="./style.css">
-  <head>
+
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
-     crossorigin="anonymous"></script>
-  </head>
+          crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header>
-  <h1>About samblog</h1>
+  <div class="logo-box">samblog</div>
+
+  <!-- Hamburger icon for mobile -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="wiki.html">Wiki</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <main>
-  <p>
-    samblog is an informational website created to share useful, educational,
-    and original content for readers worldwide.
-  </p>
+  <article>
+    <h1>About samblog</h1>
 
-  <p>
-    We focus on clarity, honesty, and value while respecting Google AdSense policies.
-  </p>
+    <p>
+      samblog is an informational website created to share useful, educational,
+      and original content for readers worldwide.
+    </p>
+
+    <p>
+      We focus on clarity, honesty, and value while respecting Google AdSense policies.
+    </p>
+  </article>
 </main>
 
 <footer>
   <p>© 2026 samblog</p>
 </footer>
 
-</body>
-</html>
+<!-- Mobile menu script -->
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+</script>
 
+</body>
+  </html>
