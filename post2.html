@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Is Google AdSense and How Does It Work? – samblog</title>
   <meta name="description" content="A simple explanation of Google AdSense and how website owners earn money from ads.">
   <link rel="stylesheet" href="style.css">
 
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
           crossorigin="anonymous"></script>
 </head>
@@ -13,10 +15,15 @@
 
 <header>
   <div class="logo-box">samblog</div>
-  <nav>
+
+  <!-- Hamburger icon for mobile -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="privacy.html">Privacy</a>
+    <a href="wiki.html">Wiki</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -53,5 +60,12 @@
   <p>© 2026 samblog</p>
 </footer>
 
+<!-- Mobile menu script -->
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+</script>
+
 </body>
-    </html>
+  </html>
