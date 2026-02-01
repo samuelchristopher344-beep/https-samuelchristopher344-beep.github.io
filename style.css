@@ -14,7 +14,9 @@ header {
   background: #222;
   color: white;
   padding: 10px 15px;
-  position: relative; /* needed for mobile menu positioning */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 /* Boxed logo */
@@ -29,9 +31,13 @@ header {
 }
 
 /* Navigation links */
+nav {
+  display: flex;
+  gap: 15px;
+}
+
 nav a {
   color: white;
-  margin-left: 15px;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.2s ease;
@@ -39,6 +45,25 @@ nav a {
 
 nav a:hover {
   color: #f0c040;  /* Highlight on hover */
+}
+
+/* ===== Hamburger menu for mobile ===== */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #222;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
 }
 
 /* ===== Main Content ===== */
@@ -76,37 +101,15 @@ footer {
   font-size: 14px;
 }
 
-/* ===== Mobile Navigation ===== */
-.menu-icon {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
   nav {
     display: none;
-    flex-direction: column;
-    background: #222;
-    position: absolute;
-    top: 55px;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
   }
-
-  nav a {
-    padding: 12px;
-    border-top: 1px solid #444;
-    margin-left: 0; /* remove left margin on mobile */
-  }
-
   .menu-icon {
     display: block;
   }
-}
+  }}
 
 /* Show menu when active */
 nav.active {
