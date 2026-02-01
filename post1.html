@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Is Blogging and Why Is It Important? – samblog</title>
-  <meta name="description" content="Learn what blogging is, why it is important, and how beginners can start blogging successfully.">
+  <meta name="description" content="Learn the basics of blogging and why it matters.">
   <link rel="stylesheet" href="style.css">
-
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
           crossorigin="anonymous"></script>
 </head>
@@ -13,10 +13,12 @@
 
 <header>
   <div class="logo-box">samblog</div>
-  <nav>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <nav id="nav-menu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="privacy.html">Privacy</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="wiki.html">Wiki</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -24,36 +26,33 @@
 <main>
   <article>
     <h1>What Is Blogging and Why Is It Important?</h1>
-
-    <p>
-      Blogging is the act of writing and publishing content on a website. A blog
-      can be used to share knowledge, ideas, experiences, and useful information
-      with people around the world.
-    </p>
-
-    <p>
-      Blogging is important because it allows individuals to communicate freely
-      and help others learn. Many blogs focus on education, tutorials, news,
-      technology, or personal growth.
-    </p>
-
-    <p>
-      For beginners, blogging is a great way to build writing skills, learn how
-      websites work, and create an online presence. Over time, a blog can grow
-      into a trusted source of information.
-    </p>
-
-    <p>
-      Successful blogs focus on originality, honesty, and consistency. Search
-      engines like Google prefer blogs that provide real value and helpful
-      content to users.
-    </p>
+    <p>Blogging is a way to share content, thoughts, or information online. It allows individuals and businesses to communicate, educate, and connect with their audience.</p>
+    <p>It’s important because it builds trust, improves visibility online, and can generate income or engagement over time.</p>
   </article>
+
+  <!-- AdSense Ad Unit -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
+          crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1758802460740402"
+       data-ad-slot="9685079329"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </main>
 
 <footer>
-  <p>© 2026 samblog</p>
+  <p>© 2026 samblog. All rights reserved.</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+</script>
 
 </body>
   </html>
