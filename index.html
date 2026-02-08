@@ -26,70 +26,15 @@
 </header>
 
 <main>
-  <article>
-    <h2>Welcome to samblog</h2>
-    <p>
-      samblog is an educational blog created to help beginners understand blogging,
-      website creation, and online tools. We share helpful, original, and valuable
-      content that is easy to understand and useful in real life.
-    </p>
-  </article>
+  <!-- Latest News Section -->
+  <section id="latest-news">
+    <h2>Latest News</h2>
+    <div id="news-articles">
+      <p>Loading news...</p>
+    </div>
+  </section>
 
-  <article>
-    <h2>Latest Articles</h2>
-    <h3><a href="post1.html">What Is Blogging and Why Is It Important?</a></h3>
-    <p>Learn the basics of blogging, why it matters, and how beginners can start.</p>
-
-    <h3><a href="post2.html">What Is Google AdSense and How It Works?</a></h3>
-    <p>A simple explanation of how website owners earn money using Google AdSense.</p>
-
-    <h3><a href="post3.html">Common Mistakes New Website Owners Make</a></h3>
-    <p>Avoid common beginner mistakes when creating and managing a website.</p>
-  </article>
-
-  <!-- AdSense Ad Unit -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
-          crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1758802460740402"
-       data-ad-slot="9685079329"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-
-  <article>
-    <h2>Our Mission</h2>
-    <p>
-      Our mission is to provide quality content that follows Google policies,
-      helps users learn, and delivers real value through clear and honest information.
-    </p>
-  </article>
-</main>
-
-<footer>
-  <p>© 2026 samblog. All rights reserved.</p>
-</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("nav-menu").classList.toggle("active");
-  }
-</script>
-
-</body>
-  </html>  <nav id="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="wiki.html">Wiki</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<main>
+  <!-- Your Articles -->
   <article>
     <h2>Welcome to samblog</h2>
     <p>
@@ -113,17 +58,17 @@
   </article>
 
   <!-- AdSense Ad Unit -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
-          crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-1758802460740402"
-       data-ad-slot="9685079329"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <div class="ad-box">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1758802460740402"
+         data-ad-slot="9685079329"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <article>
     <h2>Our Mission</h2>
@@ -145,5 +90,30 @@
   }
 </script>
 
+<!-- News API Script -->
+<script>
+  const apiKey = 'e7358d77a9804f7a960ce7b542170bb6';
+  const newsContainer = document.getElementById('news-articles');
+
+  fetch(`https://newsapi.org/v2/top-headlines?country=ng&apiKey=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      newsContainer.innerHTML = ''; // clear "Loading..." text
+      data.articles.forEach(article => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+        newsItem.innerHTML = `
+          <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+          <p>${article.description || ''}</p>
+        `;
+        newsContainer.appendChild(newsItem);
+      });
+    })
+    .catch(error => {
+      newsContainer.innerHTML = '<p>Unable to load news at this time.</p>';
+      console.error(error);
+    });
+</script>
+
 </body>
-          </html>
+      </html>
