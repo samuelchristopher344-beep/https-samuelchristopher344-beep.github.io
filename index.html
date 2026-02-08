@@ -7,7 +7,7 @@
   <meta name="description" content="samblog is a simple blog sharing useful and original content.">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Google AdSense script -->
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1758802460740402"
           crossorigin="anonymous"></script>
 </head>
@@ -26,15 +26,7 @@
 </header>
 
 <main>
-  <!-- Latest News Section -->
-  <section id="latest-news">
-    <h2>Latest News</h2>
-    <div id="news-articles">
-      <p>Loading news...</p>
-    </div>
-  </section>
-
-  <!-- Your Articles -->
+  <!-- Welcome Section -->
   <article>
     <h2>Welcome to samblog</h2>
     <p>
@@ -44,6 +36,7 @@
     </p>
   </article>
 
+  <!-- Latest Articles -->
   <article>
     <h2>Latest Articles</h2>
 
@@ -57,19 +50,26 @@
     <p>Avoid common beginner mistakes when creating and managing a website.</p>
   </article>
 
-  <!-- AdSense Ad Unit -->
-  <div class="ad-box">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1758802460740402"
-         data-ad-slot="9685079329"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+  <!-- Latest News from BBC -->
+  <section id="latest-news">
+    <h2>Latest News</h2>
+    <div id="news-articles">
+      <p>Loading news...</p>
+    </div>
+  </section>
 
+  <!-- AdSense Ad Unit -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1758802460740402"
+       data-ad-slot="9685079329"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <!-- Our Mission -->
   <article>
     <h2>Our Mission</h2>
     <p>
@@ -90,21 +90,21 @@
   }
 </script>
 
-<!-- News API Script -->
+<!-- BBC News feed script -->
 <script>
-  const apiKey = 'e7358d77a9804f7a960ce7b542170bb6';
+  const rssUrl = "https://feeds.bbci.co.uk/news/rss.xml";
   const newsContainer = document.getElementById('news-articles');
 
-  fetch(`https://newsapi.org/v2/top-headlines?country=ng&apiKey=${apiKey}`)
+  fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
     .then(response => response.json())
     .then(data => {
-      newsContainer.innerHTML = ''; // clear "Loading..." text
-      data.articles.forEach(article => {
+      newsContainer.innerHTML = '';
+      data.items.slice(0, 5).forEach(item => {
         const newsItem = document.createElement('div');
         newsItem.classList.add('news-item');
         newsItem.innerHTML = `
-          <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-          <p>${article.description || ''}</p>
+          <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+          <p>${item.pubDate ? new Date(item.pubDate).toLocaleDateString() : ''}</p>
         `;
         newsContainer.appendChild(newsItem);
       });
@@ -116,4 +116,4 @@
 </script>
 
 </body>
-      </html>
+  </html>
